@@ -7,6 +7,8 @@ export const todoSlice = createSlice({
       JSON.parse(localStorage.getItem("TodoLists")) !== null
         ? JSON.parse(localStorage.getItem("TodoLists"))
         : [],
+    editingValue: {},
+    editingStatus: false
   },
   reducers: {
     addTodo: (state, action) => {
@@ -25,10 +27,16 @@ export const todoSlice = createSlice({
           : todo
       );
     },
+    setEditingValue: (state, action) => {
+      state.editingValue = action.payload
+    },
+    setEditingStatus: (state, action) => {
+      state.editingStatus = action.payload
+    }
   },
 })
 
-export const { addTodo, removeTodo, updateTodo } = todoSlice.actions
+export const { addTodo, removeTodo, updateTodo, setEditingStatus, setEditingValue } = todoSlice.actions
 
 export default todoSlice.reducer
 

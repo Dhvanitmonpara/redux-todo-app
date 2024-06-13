@@ -15,6 +15,7 @@ function App() {
   }, [todos]);
   return (
     <>
+      <AddTodo />
       <Todos />
     </>
   );
